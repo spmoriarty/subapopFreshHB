@@ -12,11 +12,11 @@ const dogDetailContainer = document.getElementById('dog-detail-container');
 async function loadData() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-    const dogs = await getDog(id); //should this be getDog or renderDogDetail?
+    const dog = await getDog(id); //should this be getDog or renderDogDetail?
     
-    const DoggyDetail = renderDogDetail(dogs);
+    const DoggyDetail = renderDogDetail(dog);
 
-    dogDetailContainer.textContent = DoggyDetail.name;
+    dogDetailContainer.append(DoggyDetail);
 }
 
 loadData();
